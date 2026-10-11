@@ -2,7 +2,7 @@
  * VisionForge AI — Image Generation Service
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
- * @license MIT
+ * @license AGPL-3.0-or-later
  *
  * Supports OpenAI (DALL-E), Stability AI, and HuggingFace.
  * Abstracted behind a unified interface for easy provider switching.

@@ -2,7 +2,7 @@
  * VisionForge AI — Generation Queue
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
- * @license MIT
+ * @license AGPL-3.0-or-later
  *
  * Uses BullMQ with Redis for production job queuing.
  * Falls back to an in-memory queue when Redis is unavailable (dev mode).

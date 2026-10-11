@@ -2,7 +2,7 @@
  * VisionForge AI — NextAuth Route Handler
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
- * @license MIT
+ * @license AGPL-3.0-or-later
  */
 import NextAuth from "next-auth";
 import { authOptions } from "@/lib/auth";

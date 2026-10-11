@@ -1,5 +1,6 @@
 {
   "name": "visionforge-ai",
+  "license": "AGPL-3.0-or-later",
   "version": "1.0.0",
   "private": true,
   "description": "VisionForge AI — Production-ready AI image generation platform",

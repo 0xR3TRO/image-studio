@@ -6,7 +6,7 @@ A production-ready AI image generation platform built with Next.js 15, TypeScrip
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38bdf8?logo=tailwindcss)
 ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma)
-![License](https://img.shields.io/badge/License-MIT-green)
+![License](https://img.shields.io/badge/License-AGPL--3.0-blue)
 
 ---
 
@@ -274,4 +274,6 @@ npm start
 
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+Copyright (C) 2026 0xR3TRO.
+
+Licensed under the [GNU Affero General Public License v3.0 or later](LICENSE) (AGPL-3.0-or-later). You may use, study, change and share this code; if you run a modified version as a network service, you must offer its source code to the users of that service.
