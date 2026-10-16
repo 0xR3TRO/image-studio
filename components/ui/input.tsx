@@ -1,5 +1,5 @@
 /**
- * VisionForge AI — Input Component
+ * Image Studio — Input Component
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
  * @license AGPL-3.0-or-later

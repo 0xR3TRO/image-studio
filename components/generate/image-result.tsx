@@ -1,5 +1,5 @@
 /**
- * VisionForge AI — Image Result Display
+ * Image Studio — Image Result Display
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
  * @license AGPL-3.0-or-later
@@ -36,7 +36,7 @@ export function ImageResult({ images, isLoading, prompt }: ImageResultProps) {
             const blobUrl = URL.createObjectURL(blob);
             const link = document.createElement("a");
             link.href = blobUrl;
-            link.download = `visionforge-${Date.now()}.png`;
+            link.download = `imagestudio-${Date.now()}.png`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

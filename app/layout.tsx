@@ -1,5 +1,5 @@
 /**
- * VisionForge AI — Root Layout
+ * Image Studio — Root Layout
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
  * @license AGPL-3.0-or-later
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         "text to image",
         "AI art",
         "image generation",
-        "VisionForge",
+        "Image Studio",
         "DALL-E",
         "Stable Diffusion",
     ],

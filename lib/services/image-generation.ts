@@ -1,5 +1,5 @@
 /**
- * VisionForge AI — Image Generation Service
+ * Image Studio — Image Generation Service
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
  * @license AGPL-3.0-or-later
@@ -226,12 +226,18 @@ async function generateWithStability(
     return data.artifacts.map((a) => Buffer.from(a.base64, "base64"));
 }
 
-// ─── HuggingFace ────────────────────────────────────
+// ─── Hugging Face ───────────────────────────────────
+
+// Text-to-image model served by the hf-inference provider through the
+// Hugging Face router (checked on 2026-10-16). The old
+// api-inference.huggingface.co endpoint and SDXL base are no longer served.
+const HF_TEXT_TO_IMAGE_URL =
+    "https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-3-medium-diffusers";
 
 async function generateWithHuggingFace(
     params: GenerationParams,
-    _width: number,
-    _height: number,
+    width: number,
+    height: number,
 ): Promise<Buffer[]> {
     const apiKey = process.env.HUGGINGFACE_API_KEY;
     if (!apiKey) throw new Error("HUGGINGFACE_API_KEY is not configured");
@@ -243,22 +249,35 @@ async function generateWithHuggingFace(
 
     for (let i = 0; i < params.numImages; i++) {
         const seed = params.seed ?? Math.floor(Math.random() * 100000) + i;
-        const response = await fetch(
-            "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
-            {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${apiKey}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    inputs: `${prompt} [seed:${seed}]`,
-                }),
+        const response = await fetch(HF_TEXT_TO_IMAGE_URL, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${apiKey}`,
+                "Content-Type": "application/json",
+                Accept: "image/png",
             },
-        );
+            body: JSON.stringify({
+                inputs: prompt,
+                parameters: {
+                    width,
+                    height,
+                    seed,
+                    ...(params.negativePrompt
+                        ? { negative_prompt: params.negativePrompt }
+                        : {}),
+                },
+            }),
+        });
 
+        if (response.status === 402) {
+            throw new Error(
+                "Hugging Face inference credits are used up for this month",
+            );
+        }
         if (!response.ok) {
-            throw new Error(`HuggingFace API error: ${response.statusText}`);
+            throw new Error(
+                `Hugging Face API error (${response.status}): ${response.statusText}`,
+            );
         }
 
         const arrayBuf = await response.arrayBuffer();

@@ -1,11 +1,11 @@
 /**
- * VisionForge AI — Type Definitions
+ * Image Studio — Type Definitions
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
  * @license AGPL-3.0-or-later
  */
 
-// ─── VisionForge AI — Type Definitions ───────────────
+// ─── Image Studio — Type Definitions ───────────────
 
 import type { User, Image, Prompt, GenerationJob } from "@prisma/client";
 

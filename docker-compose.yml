@@ -6,7 +6,7 @@ services:
         ports:
             - "3000:3000"
         environment:
-            - DATABASE_URL=postgresql://visionforge:visionforge@db:5432/visionforge
+            - DATABASE_URL=postgresql://imagestudio:imagestudio@db:5432/imagestudio
             - NEXTAUTH_URL=http://localhost:3000
             - NEXTAUTH_SECRET=change-me-in-production
             - REDIS_URL=redis://redis:6379
@@ -20,15 +20,15 @@ services:
     db:
         image: postgres:16-alpine
         environment:
-            - POSTGRES_USER=visionforge
-            - POSTGRES_PASSWORD=visionforge
-            - POSTGRES_DB=visionforge
+            - POSTGRES_USER=imagestudio
+            - POSTGRES_PASSWORD=imagestudio
+            - POSTGRES_DB=imagestudio
         volumes:
             - postgres_data:/var/lib/postgresql/data
         ports:
             - "5432:5432"
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U visionforge"]
+            test: ["CMD-SHELL", "pg_isready -U imagestudio"]
             interval: 5s
             timeout: 5s
             retries: 5

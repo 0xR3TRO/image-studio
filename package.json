@@ -1,14 +1,14 @@
 {
-  "name": "visionforge-ai",
+  "name": "image-studio",
   "license": "AGPL-3.0-or-later",
   "version": "1.0.0",
   "private": true,
-  "description": "VisionForge AI — Production-ready AI image generation platform",
+  "description": "Image Studio — Production-ready AI image generation platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",

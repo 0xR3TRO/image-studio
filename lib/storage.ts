@@ -1,5 +1,5 @@
 /**
- * VisionForge AI — Cloud Storage Service
+ * Image Studio — Cloud Storage Service
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
  * @license AGPL-3.0-or-later
@@ -170,7 +170,7 @@ async function uploadToSupabase(
 ): Promise<UploadResult> {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-    const bucket = "visionforge-images";
+    const bucket = "image-studio-images";
 
     const response = await fetch(
         `${supabaseUrl}/storage/v1/object/${bucket}/${key}`,
@@ -198,7 +198,7 @@ async function uploadToSupabase(
 async function deleteFromSupabase(key: string): Promise<void> {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-    const bucket = "visionforge-images";
+    const bucket = "image-studio-images";
 
     await fetch(`${supabaseUrl}/storage/v1/object/${bucket}`, {
         method: "DELETE",

@@ -1,12 +1,12 @@
 /**
- * VisionForge AI — Application Constants
+ * Image Studio — Application Constants
  * @author 0xR3TRO (https://github.com/0xR3TRO)
  * @copyright 2026 0xR3TRO
  * @license AGPL-3.0-or-later
  */
 import type { StylePreset, Resolution } from "@/types";
 
-export const APP_NAME = "VisionForge AI";
+export const APP_NAME = "Image Studio";
 export const APP_DESCRIPTION =
     "Generate realistic, creative, and high-quality images from text prompts using cutting-edge AI.";
 export const APP_URL =

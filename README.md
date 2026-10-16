@@ -1,10 +1,12 @@
-# VisionForge AI
+# Image Studio
 
-A production-ready AI image generation platform built with Next.js 15, TypeScript, and TailwindCSS.
+A self-hosted AI image generation platform built with Next.js 16, TypeScript and TailwindCSS. It needs your own PostgreSQL database and an API key for OpenAI, Stability AI or Hugging Face.
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+Renamed from VisionForge AI in October 2026.
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38bdf8?logo=tailwindcss)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38bdf8?logo=tailwindcss)
 ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma)
 ![License](https://img.shields.io/badge/License-AGPL--3.0-blue)
 
@@ -12,7 +14,7 @@ A production-ready AI image generation platform built with Next.js 15, TypeScrip
 
 ## Features
 
-- **AI Image Generation** — Generate images via OpenAI DALL-E 3, Stability AI, or HuggingFace
+- **AI Image Generation** — Generate images via OpenAI DALL-E 3, Stability AI, or Hugging Face (Stable Diffusion 3 Medium)
 - **Prompt Enhancer** — AI-powered prompt improvement with rule-based fallback
 - **User Authentication** — GitHub, Google, and credentials login via NextAuth
 - **User Dashboard** — Track generations, images, credits, and history
@@ -31,7 +33,7 @@ A production-ready AI image generation platform built with Next.js 15, TypeScrip
 
 | Layer      | Technology              |
 | ---------- | ----------------------- |
-| Framework  | Next.js 15 (App Router) |
+| Framework  | Next.js 16 (App Router) |
 | Language   | TypeScript 5.7          |
 | Styling    | TailwindCSS + CVA       |
 | Database   | PostgreSQL + Prisma ORM |
@@ -55,7 +57,7 @@ A production-ready AI image generation platform built with Next.js 15, TypeScrip
 ### 1. Clone & Install
 
 ```bash
-cd visionforge-ai
+cd image-studio
 npm install --legacy-peer-deps
 ```
 
@@ -68,7 +70,7 @@ cp .env.example .env
 Edit `.env` with your values:
 
 ```env
-DATABASE_URL="postgresql://user:password@localhost:5432/visionforge"
+DATABASE_URL="postgresql://user:password@localhost:5432/imagestudio"
 NEXTAUTH_SECRET="your-secret-key"
 NEXTAUTH_URL="http://localhost:3000"
 
@@ -113,8 +115,8 @@ This starts the app, PostgreSQL, and Redis. The app runs on port 3000.
 ### Standalone Docker
 
 ```bash
-docker build -t visionforge-ai .
-docker run -p 3000:3000 --env-file .env visionforge-ai
+docker build -t image-studio .
+docker run -p 3000:3000 --env-file .env image-studio
 ```
 
 ---
@@ -122,7 +124,7 @@ docker run -p 3000:3000 --env-file .env visionforge-ai
 ## Project Structure
 
 ```
-visionforge-ai/
+image-studio/
 ├── app/                    # Next.js App Router
 │   ├── api/                # API routes
 │   │   ├── auth/           # NextAuth + registration
